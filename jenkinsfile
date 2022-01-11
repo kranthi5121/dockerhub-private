@@ -6,13 +6,9 @@ node{
     stage('build the image'){
         app=docker.build("kranthi5121/privaterepo",".")
     }
-    stage('test image'){
-        app.inside{
-            sh 'echo "tested successfully"'
-        }
-    }
     stage('push image'){
-        docker.withRegistry('https://registry.hub.docker.com','Dockerhub'){
+        docker.withRegistry('https://registry.hub.docker.com','Dockerhub')
+        {
             app.push("latest")
         }
     }
