@@ -1,10 +1,10 @@
 node{
     def app
     stage('scm'){
-        git branch: 'main', url: 'https://github.com/PoojyaShree/dockerhubprivate-example.git'
+        git branch: 'main', url: 'https://github.com/kranthi5121/dockerhub-private.git'
     }
     stage('build the image'){
-        app=docker.build("gaddamnarendra/myprivaterepo",".")
+        app=docker.build("kranthi5121/privaterepo",".")
     }
     stage('test image'){
         app.inside{
@@ -12,7 +12,7 @@ node{
         }
     }
     stage('push image'){
-        docker.withRegistry('https://registry.hub.docker.com','DOCKER_CRDS'){
+        docker.withRegistry('https://registry.hub.docker.com','Dockerhub'){
             app.push("latest")
         }
     }
