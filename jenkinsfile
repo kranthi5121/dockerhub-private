@@ -4,7 +4,7 @@ node{
         git branch: 'main', url: 'https://github.com/kranthi5121/dockerhub-private.git'
     }
     stage('build the image'){
-        app=docker.build("kranthi5121/privaterepo",".")
+        app=docker.build("kranthi5121/private-repo",".")
     }
     stage('push image'){
         docker.withRegistry('https://registry.hub.docker.com','Dockerhub')
